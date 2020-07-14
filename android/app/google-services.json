@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "485092720067",
+    "firebase_url": "https://pushnotification-aa80b.firebaseio.com",
+    "project_id": "pushnotification-aa80b",
+    "storage_bucket": "pushnotification-aa80b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485092720067:android:256c8504bee6497e4bd176",
+        "android_client_info": {
+          "package_name": "br.com.farmbits.push_notification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "485092720067-gdfvfk5cio1algukcajoqnd2bhfr3ppk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsE4zrcvCPVMB111FP2Z8ZhPjVo0gMd5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "485092720067-gdfvfk5cio1algukcajoqnd2bhfr3ppk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
