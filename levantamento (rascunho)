@@ -1,0 +1,66 @@
+*Parte do app*
+- criar o app com um widget simples
+- importar pacotes do firebase em arquivos do app
+- seguir https://pub.dev/packages/firebase_messaging
+- add no android/app/src/main/AndroidManifest.xml:
+<intent-filter>
+    <action android:name="FLUTTER_NOTIFICATION_CLICK" />
+    <category android:name="android.intent.category.DEFAULT" />
+</intent-filter>
+
+- o arquivo do widget deve conter também:
+import 'package:firebase_messaging/firebase_messaging.dart';
+final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+
+- seguir https://github.com/kawasakileo/PushNotificationApp
+
+----------------------------------------------------
+
+*Parte do Firebase*
+- criar projeto no console do firebase
+- ir em: ampliar > cloudMessaging e criar a notificação
+  - em "segmentação" add o package do projeto exemplo: 
+    'br.com.farmbits.push_notification'
+  - em "outras opções" add click_action: FLUTTER_NOTIFICATION_CLICK
+- seguir https://pub.dev/packages/firebase_messaging
+- disparar notificação
+
+----------------------------------------------------
+
+*Utilizando API Rest (Postman)*
+- para disparar uma notificação via API Rest deve-se utilizar um 
+token, ele é gerado ao iniciar o app e é printado no console. 
+Utilizar o repositório citado acima.
+
+-URL(Post): https://fcm.googleapis.com/fcm/send
+
+- Headers: 
+Authorization: key=<token-do-projeto>*
+Content-Type: application/json
+
+<token-do-projeto>: Projeto Firebase > Settings > CloudMessaging
+
+- Body:
+raw json
+{
+    "to": <token-gerado>,
+    "data": {
+        "title": "Notification with Postman",
+        "body": "This is a notification using Postman."
+    }
+}
+
+- Deve ser retornado:
+status: 200
+{
+    "multicast_id": 2433826557469636659,
+    "success": 1,
+    "failure": 0,
+    "canonical_ids": 0,
+    "results": [
+        {
+            "message_id": "0:1594766569111265%b55a18a9f9fd7ecd"
+        }
+    ]
+}
+
