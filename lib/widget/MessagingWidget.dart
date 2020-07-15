@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:push_notification/model/Message.dart';
+// import 'com.google.firebase.iid.FirebaseInstanceId';
 
 class MessagingWidget extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _MessagingWidgetState extends State<MessagingWidget> {
   void initState() {
     super.initState();
     _firebaseMessaging.getToken().then((token) {
-      print("TOKEN1: " + token);
+      print("TOKEN: " + token);
     });
 
     _firebaseMessaging.configure(

@@ -41,16 +41,17 @@ Content-Type: application/json
 <token-do-projeto>: Projeto Firebase > Settings > CloudMessaging
 
 - Body:
+  - Para um aparelho:
 raw json
 {
     "to": <token-gerado>,
-    "data": {
-        "title": "Notification with Postman",
-        "body": "This is a notification using Postman."
+    "notification": {
+        "title": "Notificação Postman",
+        "body": "Essa é uma notificação via Postman"
     }
 }
 
-- Deve ser retornado:
+Deve ser retornado:
 status: 200
 {
     "multicast_id": 2433826557469636659,
@@ -64,3 +65,17 @@ status: 200
     ]
 }
 
+  - Para múltiplos aparelhos:
+{
+    "registration_ids": [
+        <token-gerado-1>,
+        <token-gerado-2>,
+        <token-gerado-n>
+    ],
+    "notification": {
+        "title": "Notificação Postman",
+        "body": "Notificação via Postman com 'registration_ids' 3 itens"
+    }
+}
+
+- seguir https://firebase.google.com/docs/cloud-messaging/http-server-ref#device-group-managmement
