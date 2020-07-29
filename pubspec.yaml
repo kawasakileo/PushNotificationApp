@@ -21,8 +21,28 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  intl: ^0.16.1
   flutter:
     sdk: flutter
+  floor: ^0.13.0
+  http: ^0.12.1
+  flutter_svg: ^0.17.4
+  shared_preferences: ^0.5.7+3
+  mask_text_input_formatter: ^1.0.6
+  url_launcher: ^5.4.10
+  flutter_rounded_date_picker: ^1.0.4
+  font_awesome_flutter: ^8.8.1
+  connectivity: ^0.4.8+6
+  dio: ^3.0.9
+  dio_http_cache: ^0.2.6
+  cron: ^0.2.3
+  flutter_modular:
+  flutter_mobx: ^1.1.0
+  basic_utils: ^2.5.3
+  flutter_mobile_carousel: ^1.0.3
+  cpfcnpj: ^1.0.3
+  email_validator: ^1.0.0
+  flutter_open_whatsapp: ^0.1.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -33,6 +53,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  floor_generator: ^0.13.0
+  sqflite_ffi_test:
+    git:
+      url: git://github.com/tekartik/sqflite_more
+      ref: dart2
+      path: sqflite_ffi_test
+  build_runner: ^1.10.0
+  mobx_codegen: ^1.1.0
+  flutter_stetho: ^0.5.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:push_notification/model/Message.dart';
-// import 'com.google.firebase.iid.FirebaseInstanceId';
+import 'package:push_notification/message/message.dart';
+import 'package:push_notification/services/devices/device.dart';
+import 'package:push_notification/services/devices/device_dao.dart';
+import '../services/user/user_dao.dart';
+import '../services/user/user.dart';
+import '../services/dao_factory.dart';
 
 class MessagingWidget extends StatefulWidget {
   @override
@@ -9,14 +13,26 @@ class MessagingWidget extends StatefulWidget {
 }
 
 class _MessagingWidgetState extends State<MessagingWidget> {
-  FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+  static FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   final List<Message> messages = [];
+  static String deviceToken;
+
+  UserDao _userDao = DaoFactory.instance.userDao;
+  DeviceDao _deviceDao = DaoFactory.instance.deviceDao;
+
+  final user = User(1, '1234567890', 'name', 'username',
+      'username@farmbits.com.br', '01234567980', true, deviceToken);
+  final device = Device(1, 1, deviceToken);
 
   @override
   void initState() {
     super.initState();
+
     _firebaseMessaging.getToken().then((token) {
       print("TOKEN: " + token);
+      deviceToken = token;
+      _userDao.save(user);
+      _deviceDao.save(device);
     });
 
     _firebaseMessaging.configure(

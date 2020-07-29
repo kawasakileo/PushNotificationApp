@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:push_notification/widget/MessagingWidget.dart';
+import 'package:push_notification/services/dao_factory.dart';
+import 'package:push_notification/widget/messaging_widget.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await DaoFactory.init();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
