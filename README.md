@@ -1,6 +1,4 @@
-# Levantamento do Push Notification  
-  
--- çjkfçlzsjflsjflks
+# Levantamento do Push Notification
 
 De acordo a CNCT-292.  
   
